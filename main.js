@@ -27,6 +27,9 @@ dateInput.onchange = (event) => {
 
   const schoolAge = Math.abs(date.add(6, 'month').get('year') - today.get('year'));
 
+  if (schoolAge >= calculationTable.length) {
+    return alert("Ya es demasiado grande");
+  }
   const course = calculationTable[schoolAge];
   const thisYear = today.get('year');
   const nextCourse = calculationTable.find((c, index) => index > schoolAge && c !== null);
