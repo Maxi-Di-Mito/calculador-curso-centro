@@ -19,16 +19,20 @@ const calculationTable = [
   "AC",// 13 años
 ];
 
-const dateInput = document.getElementById("date");
+const calculateButton = document.getElementById("calculate-button");
+const dayInput = document.getElementById("day");
+const monthInput = document.getElementById("month");
+const yearInput = document.getElementById("year");
 
-dateInput.onchange = (event) => {
+calculateButton.onclick = () => {
   const today = dayjs();
-  const date = dayjs(event.target.value);
+  let date = dayjs();
+  date = date.set('date', dayInput.value).set('month', monthInput.value).set('year', yearInput.value);
 
   const schoolAge = Math.abs(date.add(6, 'month').get('year') - today.get('year'));
 
   if (schoolAge >= calculationTable.length) {
-    return alert("Ya es demasiado grande");
+    return alert("Fecha fuera de rango");
   }
   const course = calculationTable[schoolAge];
   const thisYear = today.get('year');

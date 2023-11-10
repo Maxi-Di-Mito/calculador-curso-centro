@@ -9,7 +9,15 @@
 
 <body>
   <div id="app">
-    <input type="date" id="date" />
+    <div class="date-input">
+      <label for="day">Dia:</label>
+      <input type="number" id="day" />
+      <label for="monthj">Mes:</label>
+      <input type="number" id="month" />
+      <label for="year">Año:</label>
+      <input type="number" id="year" />
+      <button id="calculate-button">Calcular</button>
+    </div>
     <div id="result"></div>
   </div>
   <script type="module" src="/main.js"></script>
