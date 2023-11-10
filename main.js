@@ -29,6 +29,10 @@ calculateButton.onclick = () => {
   let date = dayjs();
   date = date.set('date', dayInput.value).set('month', monthInput.value).set('year', yearInput.value);
 
+  if (date.year() < 2008) {
+    return alert("Fecha fuera de rango");
+  }
+
   const schoolAge = Math.abs(date.add(6, 'month').get('year') - today.get('year'));
 
   if (schoolAge >= calculationTable.length) {
