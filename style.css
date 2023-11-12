@@ -8,8 +8,11 @@ body {
 
 .date-input {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+}
+
+.date-input input {
+  max-width: 50px;
 }
 
 #result {

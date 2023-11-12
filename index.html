@@ -9,15 +9,14 @@
 
 <body>
   <div id="app">
-    <div class="date-input">
-      <label for="day">Dia:</label>
+    <form class="date-input" id="date-form" action="">
       <input type="number" id="day" />
-      <label for="month">Mes:</label>
+      <span>/</span>
       <input type="number" id="month" />
-      <label for="year">Año:</label>
+      <span>/</span>
       <input type="number" id="year" />
-      <button id="calculate-button">Calcular</button>
-    </div>
+      <button id="calculate-button" type="submit">Calcular</button>
+    </form>
     <div id="result"></div>
   </div>
   <script type="module" src="/main.js"></script>

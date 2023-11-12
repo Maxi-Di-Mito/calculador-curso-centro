@@ -19,12 +19,14 @@ const calculationTable = [
   "AC",// 13 años
 ];
 
-const calculateButton = document.getElementById("calculate-button");
+const form = document.getElementById("date-form");
 const dayInput = document.getElementById("day");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
 
-calculateButton.onclick = () => {
+form.onsubmit = (event) => {
+  event.preventDefault();
+  clearResults();
   const today = dayjs();
   let date = dayjs();
   date = date.set('date', dayInput.value).set('month', monthInput.value).set('year', yearInput.value);
@@ -51,4 +53,10 @@ function showResults(data) {
   let html = `<span ${!data.course ? 'class="hidden"' : ''} >Este año ${data.thisYear} le toca: ${data.course}</span>`;
   html += `<span>En ${data.nextCourseYear} empieza: ${data.nextCourse}</span>`;
   resultsWrap.innerHTML = html;
+}
+
+function clearResults() {
+  const resultsWrap = document.getElementById('result');
+  resultsWrap.innerHTML = "";
+
 }
