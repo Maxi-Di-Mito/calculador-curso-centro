@@ -21,13 +21,17 @@ const calculationTable = [
 
 const cutOffset = {
   "ARG": 6, // junio/julio"
-  "URG": 10, // marzo/abril
+  "BOL": 8, // abril/mayo
+  "URG": 8, // abril/mayo
+  "CHI": 9, // marzo/abril
+  "PAR": 0, // con el año
 };
 
 const form = document.getElementById("date-form");
 const dayInput = document.getElementById("day");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
+const countrySelect = document.getElementById("country");
 
 form.onsubmit = (event) => {
   event.preventDefault();
@@ -37,13 +41,15 @@ form.onsubmit = (event) => {
   const monthValue = +monthInput.value - 1;// from calendar month number to 0 based index for dayjs
   date = date.set('date', dayInput.value).set('month', monthValue).set('year', yearInput.value);
 
+  const country = countrySelect.value;
+
   if (date.year() < 2008) {
     alert("Fecha fuera de rango");
     clearResults();
     return;
   }
 
-  const offset = cutOffset["ARG"];
+  const offset = cutOffset[country];
 
   const schoolAge = Math.abs(date.add(offset, 'month').get('year') - today.get('year'));
 
