@@ -19,6 +19,11 @@ const calculationTable = [
   "AC",// 13 años
 ];
 
+const cutOffset = {
+  "ARG": 6, // junio/julio"
+  "URG": 10, // marzo/abril
+};
+
 const form = document.getElementById("date-form");
 const dayInput = document.getElementById("day");
 const monthInput = document.getElementById("month");
@@ -29,16 +34,23 @@ form.onsubmit = (event) => {
   clearResults();
   const today = dayjs();
   let date = dayjs();
-  date = date.set('date', dayInput.value).set('month', monthInput.value).set('year', yearInput.value);
+  const monthValue = +monthInput.value - 1;// from calendar month number to 0 based index for dayjs
+  date = date.set('date', dayInput.value).set('month', monthValue).set('year', yearInput.value);
 
   if (date.year() < 2008) {
-    return alert("Fecha fuera de rango");
+    alert("Fecha fuera de rango");
+    clearResults();
+    return;
   }
 
-  const schoolAge = Math.abs(date.add(6, 'month').get('year') - today.get('year'));
+  const offset = cutOffset["ARG"];
+
+  const schoolAge = Math.abs(date.add(offset, 'month').get('year') - today.get('year'));
 
   if (schoolAge >= calculationTable.length) {
-    return alert("Fecha fuera de rango");
+    alert("Fecha fuera de rango");
+    clearResults();
+    return;
   }
   const course = calculationTable[schoolAge];
   const thisYear = today.get('year');
