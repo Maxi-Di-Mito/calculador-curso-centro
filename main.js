@@ -33,7 +33,9 @@ const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
 const countrySelect = document.getElementById("country");
 
-form.onsubmit = (event) => {
+form.onsubmit = handleSubmit;
+
+function handleSubmit(event) {
   event.preventDefault();
   clearResults();
   const today = dayjs();
@@ -58,13 +60,14 @@ form.onsubmit = (event) => {
     clearResults();
     return;
   }
+
   const course = calculationTable[schoolAge];
   const thisYear = today.get('year');
   const nextCourse = calculationTable.find((c, index) => index > schoolAge && c !== null);
   const nextCourseYear = today.get('year') + calculationTable.findIndex(e => e === nextCourse) - schoolAge;
 
   showResults({ thisYear, course, nextCourse, nextCourseYear });
-};
+}
 
 function showResults(data) {
   const resultsWrap = document.getElementById('result');
@@ -76,5 +79,4 @@ function showResults(data) {
 function clearResults() {
   const resultsWrap = document.getElementById('result');
   resultsWrap.innerHTML = "";
-
 }
