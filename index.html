@@ -4,12 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <title>Tabla de edades</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 
 <body>
   <div id="app">
+    <h1>Tabla de edades</h1>
+    <h3>
+      PreEscuela dominical, Escuela Dominical, Escuela de Religion y
+      Confirmacion
+    </h3>
+    <p>
+      Seleccionar el pais y colocar fecha de nacimiento, dia (dos digitos),
+      mes (dos digitos), y año (cuatro digitos), a continuacion hacer click en
+      la lupa
+    </p>
     <form class="date-input" id="date-form" action="">
+      <label for="country">Pais</label>
+      <label for="day">Dia</label>
+      <label for="month">Mes</label>
+      <label for="year">Año</label>
       <select id="country">
         <option value="ARG">Argentina</option>
         <option value="BOL">Bolivia</option>
@@ -18,9 +33,7 @@
         <option value="PAR">Paraguay</option>
       </select>
       <input type="number" id="day" />
-      <span>/</span>
       <input type="number" id="month" />
-      <span>/</span>
       <input type="number" id="year" />
       <button id="calculate-button" type="submit">Calcular</button>
     </form>

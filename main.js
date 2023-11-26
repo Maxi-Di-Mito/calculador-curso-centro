@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import './style.css';
 import dayjs from "dayjs";
 
 const calculationTable = [
