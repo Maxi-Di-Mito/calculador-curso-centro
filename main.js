@@ -70,8 +70,8 @@ function handleSubmit(event) {
 
 function showResults(data) {
   const resultsWrap = document.getElementById('result');
-  let html = `<span ${!data.course ? 'class="hidden"' : ''} >Este año ${data.thisYear} le toca: ${data.course}</span>`;
-  html += `<span>En ${data.nextCourseYear} empieza: ${data.nextCourse}</span>`;
+  let html = `<span ${!data.course ? 'class="hidden"' : ''} >Este año ${data.thisYear} cursa en ${data.course}</span>`;
+  html += `<span>En ${data.nextCourseYear} cursara en ${data.nextCourse}</span>`;
   resultsWrap.innerHTML = html;
 }
 
