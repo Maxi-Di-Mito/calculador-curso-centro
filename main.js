@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import dayjs from "dayjs";
+import { getText, updateLanguage } from './src/translate.js';
 
 const calculationTable = [
   null,// 0 años
@@ -19,11 +20,12 @@ const calculationTable = [
 ];
 
 const cutOffset = {
-  "ARG": 6, // junio/julio"
+  "ARG": 6, // junio/julio
   "BOL": 8, // abril/mayo
+  "BRA": 6, // junio/julio
   "URG": 8, // abril/mayo
   "CHI": 9, // marzo/abril
-  "PAR": 0, // con el año
+  "PAR": 12, // todo el año
 };
 
 const form = document.getElementById("date-form");
@@ -70,8 +72,8 @@ function handleSubmit(event) {
 
 function showResults(data) {
   const resultsWrap = document.getElementById('result');
-  let html = `<span ${!data.course ? 'class="hidden"' : ''} >Este año ${data.thisYear} cursa en ${data.course}</span>`;
-  html += `<span>En ${data.nextCourseYear} cursara en ${data.nextCourse}</span>`;
+  let html = `<span ${!data.course ? 'class="hidden"' : ''}>${getText('currentCourse', { year: data.thisYear, course: data.course })}</span>`;
+  html += `<span>${getText('nextCourse', { year: data.nextCourseYear, course: data.nextCourse })}</span>`;
   resultsWrap.innerHTML = html;
 }
 
@@ -79,3 +81,7 @@ function clearResults() {
   const resultsWrap = document.getElementById('result');
   resultsWrap.innerHTML = "";
 }
+
+window.updateLanguage = event => {
+  updateLanguage(event.target.value);
+};

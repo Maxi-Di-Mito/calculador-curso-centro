@@ -1,0 +1,28 @@
+{
+  "es": {
+    "translation": {
+      "title": "Tabla de edades",
+      "subtitle": "Preescuela dominical, Escuela dominical, Escuela de Religion y Confirmacion",
+      "steps": "Seleccionar el pais y colocar fecha de nacimiento, dia (dos digitos), mes (dos digitos), y año (cuatro digitos), a continuacion hacer click en la lupa",
+      "countryBox": "Pais",
+      "dayBox": "Dia",
+      "monthBox": "Mes",
+      "yearBox": "Año",
+      "currentCourse": " Este año {{year}} cursa en {{course}}",
+      "nextCourse": "En {{year}} cursara en {{course}}"
+    }
+  },
+  "pt": {
+    "translation": {
+      "title": "Tabela de idades",
+      "subtitle": "Jardim dominical, Escola dominical, Escola de Religião y Confirmaçao",
+      "steps": "Insira data de nascimento, dia (dois dígitos), mês (dois dígitos) e ano (quatro dígitos) depois,  clique na lupa e você encontrará abaixo o nível de escolaridade que a criança deve frequentar.",
+      "countryBox": "Pais",
+      "dayBox": "Dia",
+      "monthBox": "Mês",
+      "yearBox": "Ano",
+      "currentCourse": " Este año {{year}} cursa en {{course}}",
+      "nextCourse": "En {{year}} cursara en {{course}}"
+    }
+  }
+}
