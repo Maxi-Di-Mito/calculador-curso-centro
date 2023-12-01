@@ -33,7 +33,7 @@ const dayInput = document.getElementById("day");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
 const countrySelect = document.getElementById("country");
-
+const countryLabel = document.querySelector('[data-i18n=countryBox]');
 form.onsubmit = handleSubmit;
 
 function handleSubmit(event) {
@@ -83,5 +83,16 @@ function clearResults() {
 }
 
 window.updateLanguage = event => {
-  updateLanguage(event.target.value);
+  const language = event.target.value;
+  if (language === 'pt') {
+    form.classList.add('is-brasil');
+    countrySelect.classList.add('is-brasil');
+    countryLabel.classList.add('is-brasil');
+    countrySelect.value = 'BRA';
+  } else {
+    form.classList.remove('is-brasil');
+    countryLabel.classList.remove('is-brasil');
+    countrySelect.classList.remove('is-brasil');
+  }
+  updateLanguage(language);
 };

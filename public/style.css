@@ -17,6 +17,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+#app .is-brasil {
+  display: none;
+}
+
 label {
   display: block;
 }
@@ -33,6 +37,11 @@ label {
   justify-items: center;
 }
 
+#app .date-input.is-brasil {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .date-input input {
   max-width: 50px;
 }
@@ -46,6 +55,10 @@ label {
 }
 .date-input #calculate-button img {
   cursor: pointer;
+}
+
+#app .date-input.is-brasil #calculate-button {
+  grid-column: 2;
 }
 
 #result {
