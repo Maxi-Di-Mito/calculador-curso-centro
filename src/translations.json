@@ -21,8 +21,8 @@
       "dayBox": "Dia",
       "monthBox": "Mês",
       "yearBox": "Ano",
-      "currentCourse": " Este año {{year}} cursa en {{course}}",
-      "nextCourse": "En {{year}} cursara en {{course}}"
+      "currentCourse": "Em {{year}} cursa a {{course}}",
+      "nextCourse": "Em {{year}} cursar a {{course}}"
     }
   }
 }
