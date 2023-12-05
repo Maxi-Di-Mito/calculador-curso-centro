@@ -34,11 +34,11 @@ const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
 const countrySelect = document.getElementById("country");
 const countryLabel = document.querySelector('[data-i18n=countryBox]');
+const calculateButton = document.getElementById('calculate-button');
 form.onsubmit = handleSubmit;
 
 function handleSubmit(event) {
   event.preventDefault();
-  clearResults();
   const today = dayjs();
   let date = dayjs();
   const monthValue = +monthInput.value - 1;// from calendar month number to 0 based index for dayjs
@@ -74,13 +74,21 @@ function showResults(data) {
   const resultsWrap = document.getElementById('result');
   let html = `<span ${!data.course ? 'class="hidden"' : ''}>${getText('currentCourse', { year: data.thisYear, course: data.course })}</span>`;
   html += `<span>${getText('nextCourse', { year: data.nextCourseYear, course: data.nextCourse })}</span>`;
+  html += `<button onclick="clearResults()">Calcular otro</button>`;
   resultsWrap.innerHTML = html;
+  calculateButton.classList.add('hidden');
 }
 
 function clearResults() {
   const resultsWrap = document.getElementById('result');
   resultsWrap.innerHTML = "";
+  dayInput.value = '';
+  monthInput.value = '';
+  yearInput.value = '';
+  calculateButton.classList.remove('hidden');
 }
+
+window.clearResults = clearResults;
 
 window.updateLanguage = event => {
   const language = event.target.value;

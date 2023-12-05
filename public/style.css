@@ -69,6 +69,6 @@ label {
   margin-top: 1em;
 }
 
-#result > span.hidden {
+.hidden {
   display: none;
 }
