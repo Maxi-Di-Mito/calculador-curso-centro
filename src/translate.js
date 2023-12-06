@@ -1,4 +1,4 @@
-import i18next, { changeLanguage } from "i18next";
+import i18next from "i18next";
 import data from './translations.json';
 
 i18next.init({

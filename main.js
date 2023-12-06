@@ -74,7 +74,7 @@ function showResults(data) {
   const resultsWrap = document.getElementById('result');
   let html = `<span ${!data.course ? 'class="hidden"' : ''}>${getText('currentCourse', { year: data.thisYear, course: data.course })}</span>`;
   html += `<span>${getText('nextCourse', { year: data.nextCourseYear, course: data.nextCourse })}</span>`;
-  html += `<button onclick="clearResults()">Calcular otro</button>`;
+  html += `<button onclick="clearResults()">${getText('again')}</button>`;
   resultsWrap.innerHTML = html;
   calculateButton.classList.add('hidden');
 }
@@ -101,6 +101,7 @@ window.updateLanguage = event => {
     form.classList.remove('is-brasil');
     countryLabel.classList.remove('is-brasil');
     countrySelect.classList.remove('is-brasil');
+    countrySelect.value = 'ARG';
   }
   updateLanguage(language);
 };

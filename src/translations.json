@@ -9,7 +9,8 @@
       "monthBox": "Mes",
       "yearBox": "Año",
       "currentCourse": "Este año {{year}} cursa en {{course}}",
-      "nextCourse": "En {{year}} cursara en {{course}}"
+      "nextCourse": "En {{year}} cursara en {{course}}",
+      "again": "Calcular otro"
     }
   },
   "pt": {
@@ -22,7 +23,8 @@
       "monthBox": "Mês",
       "yearBox": "Ano",
       "currentCourse": "Em {{year}} cursa a {{course}}",
-      "nextCourse": "Em {{year}} cursar a {{course}}"
+      "nextCourse": "Em {{year}} cursar a {{course}}",
+      "again": "Calcular outro"
     }
   }
 }
