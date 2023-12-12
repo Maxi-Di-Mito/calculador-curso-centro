@@ -2,14 +2,14 @@
   "es": {
     "translation": {
       "title": "Tabla de edades",
-      "subtitle": "Preescuela dominical, Escuela dominical, Escuela de Religion y Confirmacion",
-      "steps": "Seleccionar el pais y colocar fecha de nacimiento, dia (dos digitos), mes (dos digitos), y año (cuatro digitos), a continuacion hacer click en la lupa.",
-      "countryBox": "Pais",
-      "dayBox": "Dia",
+      "subtitle": "Preescuela dominical, Escuela dominical, Escuela de Religión y Confirmación",
+      "steps": "Seleccionar el país y colocar fecha de nacimiento, día (dos dígitos), mes (dos dígitos), y año (cuatro dígitos), a continuación hacer click en la lupa.",
+      "countryBox": "País",
+      "dayBox": "Día",
       "monthBox": "Mes",
       "yearBox": "Año",
       "currentCourse": "Este año {{year}} cursa en {{course}}",
-      "nextCourse": "En {{year}} cursara en {{course}}",
+      "nextCourse": "En {{year}} cursará en {{course}}",
       "again": "Calcular otro"
     }
   },
