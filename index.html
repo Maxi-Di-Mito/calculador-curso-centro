@@ -1,50 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabla de edades</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
 
-  <body>
-    <div id="app">
-      <select id="language" onchange="updateLanguage(event)">
-        <option value="es">Español</option>
-        <option value="pt">Português</option>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla de edades</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div id="app" x-data="context">
+    <select id="language" x-model="language" @change="updateLanguage">
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+    </select>
+    <h1 data-i18n="title">Tabla de edades</h1>
+    <h3 data-i18n="subtitle">
+      PreEscuela dominical, Escuela Dominical, Escuela de Religion y
+      Confirmacion
+    </h3>
+    <p data-i18n="steps">
+      Seleccionar el pais y colocar fecha de nacimiento, dia (dos digitos),
+      mes (dos digitos), y año (cuatro digitos), a continuacion hacer click en
+      la lupa
+    </p>
+    <form class="date-input" id="date-form" x-on:submit.prevent="handleSubmit" action="">
+      <label for="country" data-i18n="countryBox">Pais</label>
+      <label for="day" data-i18n="dayBox">Dia</label>
+      <label for="month" data-i18n="monthBox">Mes</label>
+      <label for="year" data-i18n="yearBox">Año</label>
+      <select id="country" x-model="country">
+        <option value="ARG">Argentina</option>
+        <option value="BOL">Bolivia</option>
+        <option value="BRA" style="display: none">Brasil</option>
+        <option value="CHI">Chile</option>
+        <option value="PAR">Paraguay</option>
+        <option value="URG">Uruguay</option>
       </select>
-      <h1 data-i18n="title">Tabla de edades</h1>
-      <h3 data-i18n="subtitle">
-        PreEscuela dominical, Escuela Dominical, Escuela de Religion y
-        Confirmacion
-      </h3>
-      <p data-i18n="steps">
-        Seleccionar el pais y colocar fecha de nacimiento, dia (dos digitos),
-        mes (dos digitos), y año (cuatro digitos), a continuacion hacer click en
-        la lupa
-      </p>
-      <form class="date-input" id="date-form" action="">
-        <label for="country" data-i18n="countryBox">Pais</label>
-        <label for="day" data-i18n="dayBox">Dia</label>
-        <label for="month" data-i18n="monthBox">Mes</label>
-        <label for="year" data-i18n="yearBox">Año</label>
-        <select id="country">
-          <option value="ARG">Argentina</option>
-          <option value="BOL">Bolivia</option>
-          <option value="BRA" style="display: none">Brasil</option>
-          <option value="CHI">Chile</option>
-          <option value="PAR">Paraguay</option>
-          <option value="URG">Uruguay</option>
-        </select>
-        <input type="number" id="day" />
-        <input type="number" id="month" />
-        <input type="number" id="year" />
-        <button id="calculate-button" type="submit">
-          <img src="/magnifying-glass.png" />
-        </button>
-      </form>
-      <div id="result"></div>
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+      <input type="number" id="day" x-model="dayInput" />
+      <input type="number" id="month" x-model="monthInput" />
+      <input type="number" id="year" x-model="yearInput" />
+      <button id="calculate-button" type="submit">
+        <img src="/magnifying-glass.png" />
+      </button>
+    </form>
+    <template x-if="course && currentCourse && nextCourseText">
+      <div id="result">
+        <span x-text="currentCourse"></span>
+        <span x-text="nextCourseText"></span>
+        <button @click="clearResults" data-i18n="again">Otra vez</button>
+      </div>
+    </template>
+  </div>
+  <script type="module" src="src/main2.js"></script>
+</body>
+
 </html>
