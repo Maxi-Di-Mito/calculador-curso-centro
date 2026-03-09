@@ -27,11 +27,6 @@ function translateElement(element) {
   element.innerText = translation;
 }
 
-window.changeLocale = l => {
-  i18next.changeLanguage(l);
-  translateEverything();
-};
-
 export function updateLanguage(key) {
   i18next.changeLanguage(key);
   translateEverything();

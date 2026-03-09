@@ -35,6 +35,7 @@ Alpine.data('context', () => ({
   course: null,
   nextCourse: null,
   nextCourseYear: null,
+  isBrasil: false,
   country: "ARG",
   dayInput: null,
   monthInput: null,
@@ -66,6 +67,13 @@ Alpine.data('context', () => ({
     this.nextCourseYear = today.get('year') + calculationTable.findIndex(e => e === this.nextCourse) - schoolAge;
   },
   updateLanguage() {
+    if (this.language === 'pt') {
+      this.country = 'BRA';
+      this.isBrasil = true;
+    } else {
+      this.country = 'ARG';
+      this.isBrasil = false;
+    }
     updateLanguage(this.language);
   },
   get currentCourse() {

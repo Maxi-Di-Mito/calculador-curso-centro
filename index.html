@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tabla de edades</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
@@ -25,15 +25,16 @@
       </p>
       <form
         class="date-input"
+        :class="{ 'is-brasil': isBrasil }"
         id="date-form"
         x-on:submit.prevent="handleSubmit"
         action=""
       >
-        <label for="country" data-i18n="countryBox">Pais</label>
+        <label for="country" data-i18n="countryBox" :class="{ 'is-brasil': isBrasil }">Pais</label>
         <label for="day" data-i18n="dayBox">Dia</label>
         <label for="month" data-i18n="monthBox">Mes</label>
         <label for="year" data-i18n="yearBox">Año</label>
-        <select id="country" x-model="country">
+        <select id="country" x-model="country" :class="{ 'is-brasil': isBrasil }">
           <option value="ARG">Argentina</option>
           <option value="BOL">Bolivia</option>
           <option value="BRA" style="display: none">Brasil</option>
@@ -45,7 +46,7 @@
         <input type="number" id="month" x-model="monthInput" />
         <input type="number" id="year" x-model="yearInput" />
         <button id="calculate-button" type="submit">
-          <img src="/magnifying-glass.png" />
+          <img src="./magnifying-glass.png" />
         </button>
       </form>
       <template x-if="course && currentCourse">
@@ -58,6 +59,6 @@
         </div>
       </template>
     </div>
-    <script type="module" src="src/main2.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
