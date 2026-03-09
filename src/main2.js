@@ -54,10 +54,12 @@ Alpine.data('context', () => ({
     const schoolAge = Math.abs(date.add(offset, 'month').get('year') - today.get('year'));
 
     if (schoolAge >= calculationTable.length) {
+      console.info("Fecha fuera de rango");
       alert("Fecha fuera de rango");
       return this.clearResults();
     }
 
+    console.info("schoolAge", schoolAge);
     this.course = calculationTable[schoolAge];
     this.thisYear = today.get('year');
     this.nextCourse = calculationTable.find((c, index) => index > schoolAge && c !== null);
